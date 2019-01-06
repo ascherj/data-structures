@@ -52,4 +52,14 @@ describe('linkedList', function() {
   });
 
   // add more tests here to test the functionality of linkedList
+
+  it('should not contain a value in an empty list', function() {
+    expect(linkedList.contains(5)).to.equal(false);
+  });
+
+  it('should update the tail when removeHead is called on a list with one node', function() {
+    linkedList.addToTail(4);
+    linkedList.removeHead();
+    expect(linkedList.tail).to.equal(null);
+  });
 });

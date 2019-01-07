@@ -55,5 +55,3 @@ Graph.prototype.forEachNode = function(cb) {
     removeEdge() - O(1)
     forEachNode() - O(n)
  */
-
-

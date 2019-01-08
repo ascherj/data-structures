@@ -41,7 +41,15 @@ BinarySearchTree.prototype.contains = function(value) {
 
 // Accepts a callback and executes it on every value contained in the tree.
 BinarySearchTree.prototype.depthFirstLog = function(cb) {
-  // body...
+  if (this.value) {
+    cb(this.value);
+  }
+  if (this.left) {
+    this.left.depthFirstLog(cb);
+  }
+  if (this.right) {
+    this.right.depthFirstLog(cb);
+  }
 };
 
 

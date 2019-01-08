@@ -34,13 +34,32 @@ HashTable.prototype.retrieve = function(k) {
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  this._storage.set(index, []);
+  var bucket = this._storage.get(index);
+  if (bucket) {
+    var indexToBeRemoved;
+    for (var i = 0; i < bucket.length; i++) {
+      var pair = bucket[i];
+      if (pair[0] === k) {
+        indexToBeRemoved = i;
+      }
+    }
+    bucket.splice(indexToBeRemoved, 1);
+    this._storage.set(index, bucket);
+  }
 };
 
 
 
 /*
- * Complexity: What is the time complexity of the above functions?
+  Complexity: What is the time complexity of the above functions?
+    Average
+      insert() - O(1)
+      retrieve() - O(1)
+      remove() - O(1)
+    Worst (all values in the same bucket, bad hashing algorithm)
+      insert() - O(n)
+      retrieve() - O(n)
+      remove() - O(n)
  */
 
 

@@ -47,6 +47,18 @@ describe('hashTable', function() {
     window.getIndexBelowMaxForKey = oldHashFunction;
   });
 
+  // Additional tests
+
+  it('should leave the rest of the bucket untouched after value removal', function() {
+    var oldHashFunction = window.getIndexBelowMaxForKey;
+    window.getIndexBelowMaxForKey = function() { return 0; };
+    hashTable.insert('Barack', 'Obama');
+    hashTable.insert('Donald', 'Trump');
+    hashTable.remove('Barack');
+    expect(hashTable.retrieve('Donald')).to.not.equal(undefined);
+    window.getIndexBelowMaxForKey = oldHashFunction;
+  });
+
   // (Advanced! Remove the extra "x" when you want the following tests to run)
   xit ('should double in size when needed', function() {
     _.each(people, function(person) {

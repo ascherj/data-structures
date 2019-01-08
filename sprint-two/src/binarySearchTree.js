@@ -28,7 +28,15 @@ BinarySearchTree.prototype.insert = function(value) {
 
 // Accepts a value and returns a boolean reflecting whether or not the value is contained in the tree.
 BinarySearchTree.prototype.contains = function(value) {
-  // body...
+  if (value === this.value) {
+    return true;
+  } else if (value < this.value && this.left) {
+    return this.left.contains(value);
+  } else if (value > this.value && this.right) {
+    return this.right.contains(value);
+  } else {
+    return false;
+  }
 };
 
 // Accepts a callback and executes it on every value contained in the tree.

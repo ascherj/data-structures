@@ -6,7 +6,6 @@ var BinarySearchTree = function(value) {
   return newBST;
 };
 
-// Accepts a value and places it in the tree in the correct position.
 BinarySearchTree.prototype.insert = function(value) {
   var newBST = BinarySearchTree(value);
   if (!this) {
@@ -26,7 +25,6 @@ BinarySearchTree.prototype.insert = function(value) {
   }
 };
 
-// Accepts a value and returns a boolean reflecting whether or not the value is contained in the tree.
 BinarySearchTree.prototype.contains = function(value) {
   if (value === this.value) {
     return true;
@@ -39,7 +37,6 @@ BinarySearchTree.prototype.contains = function(value) {
   }
 };
 
-// Accepts a callback and executes it on every value contained in the tree.
 BinarySearchTree.prototype.depthFirstLog = function(cb) {
   if (this.value) {
     cb(this.value);
@@ -52,7 +49,9 @@ BinarySearchTree.prototype.depthFirstLog = function(cb) {
   }
 };
 
-
 /*
- * Complexity: What is the time complexity of the above functions?
+  Complexity: What is the time complexity of the above functions?
+    insert() - O(log(n))
+    contains() - O(log(n))
+    depthFirstLog() - O(n)
  */

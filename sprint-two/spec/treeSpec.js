@@ -51,6 +51,13 @@ describe('tree', function() {
     expect(tree.contains(2)).to.equal(false);
   });
 
+  it('should remove a child 2 levels deep in the tree', function() {
+    tree.addChild(1);
+    tree.children[0].addChild(2);
+    tree.removeChild(2);
+    expect(tree.contains(2)).to.equal(false);
+  });
+
   it('should reference its parent tree when added as a child', function() {
     tree.addChild(1);
     var tree1 = tree.children[0];

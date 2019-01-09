@@ -33,11 +33,12 @@ treeMethods.contains = function(target) {
 };
 
 treeMethods.removeChild = function(value) {
-  if (this.contains(value)) {
-    for (var i = 0; i < this.children.length; i++) {
-      if (this.children[i].value === value) {
-        this.children.splice(i, 1);
-      }
+  for (var i = 0; i < this.children.length; i++) {
+    var currentChild = this.children[i];
+    if (currentChild.value === value) {
+      this.children.splice(i, 1);
+    } else if (currentChild.children.length > 0) {
+      currentChild.removeChild(value);
     }
   }
 };

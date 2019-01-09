@@ -31,4 +31,5 @@ setPrototype.size = function() {
     add() - O(1)
     contains() - O(1)
     remove() - O(1)
+    size() - O(1)
  */

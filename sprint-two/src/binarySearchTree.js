@@ -49,9 +49,24 @@ BinarySearchTree.prototype.depthFirstLog = function(cb) {
   }
 };
 
+BinarySearchTree.prototype.leaves = function() {
+  var leaves = [];
+  if (!this.left && !this.right) {
+    leaves.push(this.value);
+  }
+  if (this.left) {
+    leaves = leaves.concat(this.left.leaves());
+  }
+  if (this.right) {
+    leaves = leaves.concat(this.right.leaves());
+  }
+  return leaves;
+};
+
 /*
   Complexity: What is the time complexity of the above functions?
     insert() - O(log(n))
     contains() - O(log(n))
     depthFirstLog() - O(n)
+    leaves() - O(n)
  */

@@ -37,4 +37,17 @@ describe('binarySearchTree', function() {
     binarySearchTree.depthFirstLog(func);
     expect(array).to.eql([5, 2, 3, 7]);
   });
+
+  // Additional tests
+
+  it('should find all the leaves in the tree', function() {
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(4);
+    binarySearchTree.insert(7);
+    binarySearchTree.insert(6);
+    binarySearchTree.insert(10);
+    var leaves = binarySearchTree.leaves();
+    console.log(binarySearchTree, leaves);
+    expect(leaves).to.eql([4, 6, 10]);
+  });
 });

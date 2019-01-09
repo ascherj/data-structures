@@ -51,4 +51,12 @@ describe('tree', function() {
     expect(tree.contains(2)).to.equal(false);
   });
 
+  it('should reference its parent tree when added as a child', function() {
+    tree.addChild(1);
+    var tree1 = tree.children[0];
+    tree1.addChild(2);
+    var tree2 = tree1.children[0];
+    expect(tree2.parent).to.equal(tree1);
+  });
+
 });

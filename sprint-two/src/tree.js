@@ -1,6 +1,7 @@
-var Tree = function(value) {
+var Tree = function(value, parent = null) {
   var newTree = {};
   newTree.value = value;
+  newTree.parent = parent;
   newTree.children = [];
   extend(newTree, treeMethods);
   return newTree;
@@ -15,7 +16,7 @@ var extend = function(obj1, obj2) {
 var treeMethods = {};
 
 treeMethods.addChild = function(value) {
-  var newTree = Tree(value);
+  var newTree = Tree(value, this);
   this.children.push(newTree);
 };
 

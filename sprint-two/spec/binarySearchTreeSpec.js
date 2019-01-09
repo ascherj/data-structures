@@ -47,7 +47,6 @@ describe('binarySearchTree', function() {
     binarySearchTree.insert(6);
     binarySearchTree.insert(10);
     var leaves = binarySearchTree.leaves();
-    console.log(binarySearchTree, leaves);
     expect(leaves).to.eql([4, 6, 10]);
   });
 });

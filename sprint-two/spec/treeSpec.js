@@ -66,7 +66,7 @@ describe('tree', function() {
     expect(tree2.parent).to.equal(tree1);
   });
 
-  it('should add 5 to every node in the tree', function() {
+  it('should execute the callback on every node in the tree', function() {
     var add5 = function() {
       this.value += 5;
     };

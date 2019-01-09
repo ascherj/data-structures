@@ -66,4 +66,15 @@ describe('tree', function() {
     expect(tree2.parent).to.equal(tree1);
   });
 
+  it('should add 5 to every node in the tree', function() {
+    var add5 = function() {
+      this.value += 5;
+    };
+    tree.addChild(1);
+    tree.addChild(2);
+    tree.addChild(3);
+    tree.traverse(add5);
+    expect(tree.children.map(node => node.value)).to.eql([6, 7, 8]);
+  });
+
 });
